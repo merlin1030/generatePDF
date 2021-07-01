@@ -1,12 +1,13 @@
-import { Component, ViewEncapsulation } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-carusel-notificacion',
+  templateUrl: './carusel-notificacion.component.html',
+  styleUrls: ['./carusel-notificacion.component.scss'],
   encapsulation: ViewEncapsulation.Emulated //! es importante que entiendas esto si vas a usar ::ng-deep / >> / deep; No tengo manera de explicarlo en pocas palabras pero esta guia deberia bastar https://angular.io/guide/view-encapsulation. Si no lo entiendes consultame porque te puedes cargar los estilos de los demas caruseles si no encapsulas los estilos de tipo deep
 })
-export class AppComponent {
+export class CaruselNotificacionComponent implements OnInit {
   customOptions: OwlOptions = {
     autoHeight: false,
     autoWidth: false,
@@ -31,4 +32,10 @@ export class AppComponent {
       }
     }
   }
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

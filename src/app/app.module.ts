@@ -48,11 +48,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CaruselNotificacionComponent } from './components/carusel-notificacion/carusel-notificacion.component';
+import { CaruselPrincipalComponent } from './components/carusel-principal/carusel-principal.component';
+import { CaruselGlobalComponent } from './components/carusel-global/carusel-global.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CaruselNotificacionComponent,
+    CaruselPrincipalComponent,
+    CaruselGlobalComponent
   ],
   imports: [
     A11yModule,

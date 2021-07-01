@@ -1,0 +1,20 @@
+::ng-deep {
+  .principal {
+
+    //! clase para diferenciar estilos
+    .owl-carousel {
+      //? aca seteamos el tamaño del carrusel 
+      width : 600px;
+      height: auto;
+    }
+
+    .img-container {
+      //? imagenes responsivas, para no afectar el aspect ratio
+
+      height: auto;
+      width : 100%;
+    }
+
+  }
+
+}

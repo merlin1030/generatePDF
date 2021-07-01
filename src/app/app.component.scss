@@ -1,104 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap'); //! esto no es necesario cuando lo vayas a colocar en tu codigo
 
-.notification-wrapper {
-  //creo que nada de lo que viene aca abajo debo explicartelo porque no es nada que no hayas visto antes pero si aun asi necesitas una explicacion sientete libre de preguntar
+.btn-block {
+  display       : flex;
+  flex-direction: column;
+  height        : 100%;
 
-  display        : flex;
-  justify-content: flex-start;
-  align-items    : flex-start;
-  flex-direction : column;
-  height         : 100%;
+  a.custom-btn {
+    display                       : inline-block;
+    text-align                    : center;
+    // box-sizing                 : border-box;
+    font-size                     : 0.75rem;
+    height                        : 100px;
+    width                         : 100px;
+    // display                 : inline-block;
+    padding                       : 0.35rem 1.2rem;
+    // border         : 0.1em solid #FFFFFF;
+    margin                        : 0 0.3rem 0.3rem 0;
+    border-radius                 : 0.12rem;
+    box-sizing                    : border-box;
+    text-decoration               : none;
+    font-family                   : 'Open Sans', sans-serif;
+    font-weight                   : 600;
+    color                         : #706f6f;
+    text-align                    : center;
+    transition                    : all 0.3s;
+    background-color              : #eaecea;
 
-  .header-block {
-    width          : 100%;
-    display        : flex;
-    justify-content: flex-start;
-    align-items    : center;
-    font-family    : 'Open Sans',
-      sans-serif;
-    font-size  : 1rem;
-    line-height: 12px;
-
-    &__new {
-      color      : #52ae32;
-      font-weight: 600;
-    }
-
-    &__italic {
-      margin-left: 0.75rem;
-      color      : #706f6f;
-      font-style : italic;
-    }
-
-    .fa {
-      font-size : 1.5rem;
-      color     : #706f6f;
-      align-self: baseline;
-      position  : absolute; //! esto lo explico en la linea de codigo 66 
-      right     : 3%; //! estas dos medidas a continuacion deberian ser medidas exactas, coloque unas medidas relativas pero eso puede causar comportamientos extraños
-      top       : 12.5%;
-    }
-  }
-
-  .body-block {
-    &__notification {
-      margin-bottom: 0;
-      font-weight  : 700;
-      color        : #706f6f;
-      font-size    : 1rem;
+    &:hover {
+      color           : #706f6f;
+      background-color: #babcc0;
     }
   }
 }
 
-//custom carousel styles
-::ng-deep .owl-theme {
-  //! estos estilos deben ser encapsulados unica y exclusivamente para este componente, esto siempre debe hacerse si se recurre a un ::ng-deep lo cual debe ser un ultimo recurso.
-  margin    : 0;
-  background: none;
 
-  .owl-nav {
-    [class*=owl-]:hover {
-      //? este selector de aca se encarga de remover los hovers en todo lo que contenga un owl-..., el selector lee si hay clases que contengan owl- y de ser el caso ejecuta las propiedades dentro de si
-      background: none;
-    }
 
-    margin  : 0;
-    position: absolute; //? los elementos por defecto suelen ser relativos, al pasar un elemento a absoluto lo aislas del sistema de cajas eso quiere decir que pasa a ocupar 0 espacio entre sus elementos padres / hermanos
-
-    top: 15%; //? la mejor forma de mover un elemento absolute es con las propiedas top / botton / left / right ya que estas posicionan el elemento en un plano de coordenadas basado en su elemento padre mientras que translate transform lo hace en un plano de coordenadas basado en el propio elemento
-
-    left : 0;
-    right: 0;
-
-    .owl-prev,
-    .owl-next {
-      position  : absolute; // leer linea de codigo 66 para mas info
-      height    : 45px; //? esto es para darle tamaño a la caja que funje como el boton para el next y el prev, sin esto la caja seria mas pequeña que el icono por lo cual seria problematico encontrar la caja para interactuar
-      background: none; //? con esto le quitamos el fondo al fa que viene por defecto btw fa significa font awesome
-      border    : none; //? lo mismo de arriba pero para el borde
-      z-index   : 100; //? esto es para posicionarlo 100 capas por encima en la coordenada z, no queremos que nada se ponga encima de este elemento. PD: puede que tenga comportamientos extraños si hay modales en la misma vista
-
-      i {
-        font-size: 2.5rem; //? los iconos son tratados como fuentes, asi que puedes asignar tamaño color, weight, line-weight, etc, en un icono
-        color    : #cecece;
-      }
-    }
-
-    .owl-prev {
-      left: 0; //? esto le dice al elemento que se posicione a 0 distancia de la izquierda de su padre
-    }
-
-    .owl-next {
-      right: 0; //? esto le dice al elemento que se posicione a 0 distancia de la derecha de su padre
-    }
-  }
-
-  .owl-item {
-    width           : auto; //! esto aca no le puedes asignar tamaño o te va a dañar el nav, es importante recordar que los caruseles calculan el tamaño al precargar el codigo con propiedades calc y minmax
-    height          : 90px;
-    background-color: #eaecea;
-    padding         : 1rem;
-    border-radius   : 5px;
-    box-sizing      : border-box; //? esto es complex de explicar pero basicamente border-box al haber paddings / margins hace que la caja crezca mas de su tamaño pero en consecuencia si los elementos dentro estan por encima del contenedor entonces esos elementos no se van a visualizar, comenta o no esta opcion segun sea tu caso
+@media all and (max-width:30em) {
+  a.button1 {
+    display: block;
+    margin : 0.4em auto;
   }
 }
