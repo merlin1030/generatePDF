@@ -1,86 +1,34 @@
-import { Component } from '@angular/core';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated //! es importante que entiendas esto si vas a usar ::ng-deep / >> / deep; No tengo manera de explicarlo en pocas palabras pero esta guia deberia bastar https://angular.io/guide/view-encapsulation. Si no lo entiendes consultame porque te puedes cargar los estilos de los demas caruseles si no encapsulas los estilos de tipo deep
 })
 export class AppComponent {
-  service: any[] = {
-    name: 'CANTV',
-    ref: 123456789,
-    origin[
-      prov: 'COMERCIALIZADORA DE VIVERES Y HORTALIZAS LA MEJOR, S.A.',
-    date: '18/11/2020',
-    hour: '17:53',
-    chan: 'Web',
-    result: 'Aprovado'
-  ]
-
-  }
-
-  VIDEOGAMES = [
-    {
-      id: 1,
-      name: 'Animal Crossing',
-      platform: 'Nintendo Switch',
-      reference: '1-770-736-8031',
-    },
-    {
-      id: 2,
-      name: 'The Legend of Zelda: Ocarina of Time CV',
-      platform: 'Wii U',
-      reference: '1-770-736-2323',
-    },
-    {
-      id: 3,
-      name: 'Metal Gear Solid',
-      platform: 'Playstation (PSX)',
-      reference: '1-4564-736-334',
-    },
-    {
-      id: 4,
-      name: 'ShenMue',
-      platform: 'Sega Dreamcast',
-      reference: '3-770-736-4532',
-    },
-    {
-      id: 5,
-      name: 'Rise of the Tomb Raider',
-      platform: 'Playstation 4',
-      reference: '1-324-736-3245',
-    },
-    {
-      id: 6,
-      name: 'Resident Evil 2',
-      platform: 'Playstation',
-      reference: '1-123-3336-4321',
-    },
-  ];
-  // tslint:disable-next-line:typedef
-  downloadPDF() {
-    // Extraemos el
-    const DATA = document.getElementById('htmlData');
-    const doc = new jsPDF('p', 'pt', 'a4');
-    const options = {
-      background: 'white',
-      scale: 3
-    };
-    html2canvas(DATA, options).then((canvas) => {
-
-      const img = canvas.toDataURL('image/PNG');
-
-      // Add image Canvas to PDF
-      const bufferX = 15;
-      const bufferY = 15;
-      const imgProps = (doc as any).getImageProperties(img);
-      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
-      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
-      return doc;
-    }).then((docResult) => {
-      docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
-    });
+  customOptions: OwlOptions = {
+    autoHeight: false,
+    autoWidth: false,
+    stagePadding: 50,
+    loop: false,
+    margin: 50,
+    nav: true, //? es importante aclarar que si el numero de elementos a navegar es igual o menor (=<) a los items (i) el nav no se va a ver, ya que el carusel entiende que no hay nada items fuera en los que navegar
+    dots: false,
+    navText: [
+      '<i class="fa fa-angle-left" aria-hidden="true"></i>', //! estas son clases de fontawesome, debes intercambiarlas por tus icons ya que yo no tengo acceso a los assets
+      '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+    ],
+    responsive: {
+      0: {
+        items: 1
+      },
+      812: {
+        items: 2
+      },
+      1166: {
+        items: 3
+      }
+    }
   }
 }

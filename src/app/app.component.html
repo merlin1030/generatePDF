@@ -1,28 +1,61 @@
-<div class="container">
-  <div class="row">
-    <div id="htmlData">
-      <img src="img/banner-bod.jpg" alt="">
-      <h2>Pago de Servicios | {{service.name}}</h2>
-      <span>Referencia | {{service.ref}}</span>
-      <table class="table table-bordered mt-4">
-        <tr class="table-primary">
-          <th>Id</th>
-          <th>Name</th>
-          <th>Platform</th>
-          <th>Reference</th>
-        </tr>
-        <tr *ngFor="let game of VIDEOGAMES">
-          <th>{{game.id}}</th>
-          <td>{{game.name}}</td>
-          <td>{{game.platform}}</td>
-          <td>{{game.reference}}</td>
-        </tr>
-      </table>
+<div>La mamá de la mamah de la mama</div>
+<owl-carousel-o [options]="customOptions">
+
+  <ng-template carouselSlide>
+    <div class="notification-wrapper">
+      <div class="header-block">
+        <p class="header-block__new">Nuevo</p>
+        <p class="header-block__italic">- Martes 10/05/2020, 2:27pm</p>
+        <i class="fa fa-times-circle"></i>
+      </div>
+      <div class="body-block">
+        <p class="body-block__notification">Transferencia recibida
+          Banesco por Bs.S 150.000.000,00</p>
+      </div>
     </div>
-  </div>
-</div>
+  </ng-template>
+
+  <ng-template carouselSlide>
+    <div class="notification-wrapper">
+      <div class="header-block">
+        <p class="header-block__new">Nuevo</p>
+        <p class="header-block__italic">- Martes 10/05/2020, 2:27pm</p>
+        <i class="fa fa-times-circle"></i>
+      </div>
+      <div class="body-block">
+        <p class="body-block__notification">Cambio de clave exitoso</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template carouselSlide>
+    <div class="notification-wrapper">
+      <div class="header-block">
+        <p class="header-block__new">Nuevo</p>
+        <p class="header-block__italic">- Martes 10/05/2020, 2:27pm</p>
+        <i class="fa fa-times-circle"></i>
+      </div>
+      <div class="body-block">
+        <p class="body-block__notification">Transferencia recibida
+          Banesco por Bs.S 150.000.000,00</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template carouselSlide>
+    <div class="notification-wrapper">
+      <div class="header-block">
+        <p class="header-block__new">Nuevo</p>
+        <p class="header-block__italic">- Martes 10/05/2020, 2:27pm</p>
+        <i class="fa fa-times-circle"></i>
+      </div>
+      <div class="body-block">
+        <p class="body-block__notification">Transferencia recibida
+          Banesco por Bs.S 150.000.000,00</p>
+      </div>
+    </div>
+  </ng-template>
+</owl-carousel-o>
 
 
-<div>
-  <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
-</div>
+<div>Izi pizi eskuizi con la mama del jg en bici</div>
